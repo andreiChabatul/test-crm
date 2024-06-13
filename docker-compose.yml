@@ -1,0 +1,26 @@
+version: '3.3'
+services:
+
+  backend:
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+    container_name: nest-api
+    restart: always
+    ports:
+      - 3000:3000
+    env_file:
+      - .env
+
+  frontend:
+    build:
+      context: .
+      dockerfile: ./frontend/Dockerfile
+    container_name: frontend-vue
+    restart: always
+    ports:
+      - 8080:8080
+    env_file:
+      - .env
+ 
+
